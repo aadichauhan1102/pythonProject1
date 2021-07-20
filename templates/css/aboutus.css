@@ -1,0 +1,67 @@
+.main {
+  background-color: #f9f9f9;
+  position: relative;
+  top: 96px;
+  padding-bottom: 30px;
+}
+.main .el-tp-heading {
+  text-align: center;
+  font-size: 44px;
+  padding-top: 54px;
+  font-weight: 700;
+  color: #C89D76;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+}
+.main .card-wrapper {
+  margin-top: 40px;
+}
+.main .card-wrapper .package-card {
+  box-sizing: border-box;
+  padding: 30px;
+  margin: 20px auto;
+  min-height: 250px;
+  width: 750px;
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+}
+.main .card-wrapper .package-card .pkg-img {
+  min-height: 234px;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+.main .card-wrapper .package-card .pkg-img img {
+  width: 200px;
+  height: 230px;
+}
+.main .card-wrapper .package-card .pkg-details {
+  margin-left: 60px;
+}
+.main .card-wrapper .package-card .pkg-details .pkg-title {
+  font-weight: 700;
+  font-size: 24px;
+  color: #C89D76;
+  margin-bottom: 20px;
+}
+.main .card-wrapper .package-card .pkg-details .pkg-desc {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+.main .card-wrapper .package-card .pkg-details .pkg-desc a {
+  color: #49b5e7;
+}
+.main .card-wrapper .package-card .pkg-details .pkg-price {
+  height: 35px;
+  width: 35px;
+  background-color: white;
+  border-radius: 50%;
+  margin-right: 15px;
+  padding: 8px;
+  cursor: pointer;
+}
+.main .card-wrapper .package-card .pkg-details .pkg-price .fas {
+  font-size: 18px;
+  color: #C89D76;
+}

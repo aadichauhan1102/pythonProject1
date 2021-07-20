@@ -1,0 +1,47 @@
+.main {
+  background-color: #f9f9f9;
+  position: relative;
+  top: 96px;
+}
+.main .el-tp-heading {
+  text-align: center;
+  font-size: 44px;
+  padding-top: 54px;
+  font-weight: 700;
+  color: #C89D76;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+}
+.main form {
+  display: flex;
+  justify-content: center;
+}
+.main form .contactus-table {
+  margin-bottom: 30px;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  height: 350px;
+  width: 700px;
+}
+.main form .contactus-table tr {
+  height: 55px;
+}
+.main form .contactus-table tr td.label {
+  font-weight: 600;
+  font-size: 20px;
+  color: #49b5e7;
+}
+.main form .contactus-table tr td.buttons input {
+  font-size: 16px;
+  width: 80px;
+  color: #fff;
+  background-color: #C89D76;
+  border: 0;
+  padding: 10px;
+  font-weight: 700;
+  border-radius: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+}

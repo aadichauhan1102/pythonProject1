@@ -1,0 +1,46 @@
+.main {
+  position: relative;
+  top: 96px;
+}
+.main .video-container video {
+  width: 100%;
+  display: block;
+}
+.main .video-container .main-logo-container {
+  position: absolute;
+  top: 70px;
+  right: 50px;
+}
+.main .video-container .main-logo-container img {
+  height: 300px;
+}
+.main .carousel-container {
+  width: 100%;
+  margin-top: 10px;
+}
+.main .carousel-container #marquee {
+  width: 100%;
+}
+.main .carousel-container #marquee .marq-img-wrapper {
+  display: flex;
+}
+.main .carousel-container #marquee .marq-img-wrapper .marq-img {
+  /* width: 33%; */
+  flex: 1;
+}
+.main .carousel-container #marquee .marq-img-wrapper .marq-img img {
+  height: 400px;
+  display: block;
+}
+.back-to-top {
+  display: block;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #C89D76;
+  color: white;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  padding: 13px;
+}
