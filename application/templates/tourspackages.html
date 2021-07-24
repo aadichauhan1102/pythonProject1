@@ -9,9 +9,11 @@
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-	<link rel="stylesheet" href="../css/header.css">
-	<link rel="stylesheet" href="../css/tourspackages.css">
-	<link rel="stylesheet" href="../css/footer.css">
+	<link rel="stylesheet" href="static/css/header.css">
+	<link rel="stylesheet" href="static/css/tourspackages.css">
+	<link rel="stylesheet" href="static/css/footer.css">
+<script src="/lib/jquery.min.js"></script>
+<script src="/lib/jquery.plugin.js"></script>
 	<style>
 		h2 {
 			font-size: 30px;
@@ -26,15 +28,22 @@
 <body>
 	<header id="header">
 		<div class="logo">
-			<img src="../assets/images/logo.png" alt="Elegant Travelers">
+			<img src="static/assets/images/logo.png" alt="Elegant Travelers">
 		</div>
 		<div class="navbar">
 			<ul>
-				<li><a href="index.html" style="text-decoration: none">Home</a></li>
-				<li class="active"><a href="#">Packages</a></li>
-				<li><a href="flightDetails.html" style="text-decoration: none">Flight Details</a></li>
-				<li><a href="contactus.html">Contact Us</a></li>
-				<li><a href="aboutus.html" style="text-decoration: none">About Us</a></li>
+				<li class="active"><a href="#" style="text-decoration: none">Home</a></li>
+				<li><a href="{{ url_for('tourspackages') }}">Packages</a></li>
+				<li><a href="{{ url_for('flightDetails') }}" style="text-decoration: none">Flight Details</a></li>
+				<li><a href="{{ url_for('contactus') }}">Contact Us</a></li>
+				<li><a href="{{ url_for('aboutus') }}" style="text-decoration: none">About Us</a></li>
+				{% if loggedIn  %}
+					<li><a href="#" style="text-decoration: none">LoggedIn</a></li>
+				{% endif %}
+				{% if not loggedIn  %}
+					<li><a href="{{ url_for('loginpage') }}" style="text-decoration: none">Login/Signup</a></li>
+				{% endif %}
+				<li><a href="{{ url_for('cart') }}">Cart</a></li>
 			</ul>
 		</div>
 	</header>
@@ -46,7 +55,7 @@
 			<div class="card-wrapper">
 				<div class="package-card">
 					<div class="pkg-img">
-						<img src="../assets/images/Toronto.jpg" alt="Destination Photo" />
+						<img src="static/assets/images/Toronto.jpg" alt="Destination Photo" />
 					</div>
 					<div class="pkg-title">
 						TORONTO
@@ -61,15 +70,23 @@
 							<br> <br>
 							<a href=" https://en.wikipedia.org/wiki/Tourism_in_Toronto">Click Here For More
 								Information</a>
+
 						</div>
+						<form name="cart" action="/cart" method="post" >
 						<div class="pkg-price">
-							CA $789<br>Per night
+
+							<input type="text" value="$789" name="price">
+							<input type="text" value="torronto" name="Packages">
+
 						</div>
+
+						<button type="submit">Add to Cart</button>
+						</form>
 					</div>
 				</div>
 				<div class="package-card">
 					<div class="pkg-img">
-						<img src="../assets/images/Switzerland.jpg" alt="Destination Photo" />
+						<img src="static/assets/images/Switzerland.jpg" alt="Destination Photo" />
 					</div>
 					<div class="pkg-title">
 						Switzerland
@@ -84,14 +101,22 @@
 							<a href=" https://en.wikipedia.org/wiki/Tourism_in_Switzerland">Click Here For More
 								Information</a>
 						</div>
+						<form name="cart" action="/cart" method="post" >
 						<div class="pkg-price">
-							CA $895<br>Per night
+
+							<input type="text" value="$895" name="price">
+							<input type="text" value="Switzerland" name="Packages">
+
 						</div>
+
+						<button type="submit">Add to Cart</button>
+						</form>
+
 					</div>
 				</div>
 				<div class="package-card">
 					<div class="pkg-img">
-						<img src="../assets/images/Dubai.jpg" alt="Destination Photo" />
+						<img src="static/assets/images/Dubai.jpg" alt="Destination Photo" />
 					</div>
 					<div class="pkg-title">
 						DUBAI
@@ -108,17 +133,23 @@
 								Information</a>
 
 						</div>
+						<form name="cart" action="/cart" method="post" >
 						<div class="pkg-price">
-							CA $762<br>Per night
+
+							<input type="text" value="$762" name="price">
+							<input type="text" value="Dubai" name="Packages">
+
 						</div>
-					</div>
+
+						<button type="submit">Add to Cart</button>
+						</form>
 				</div>
 
 			</div>
 			<div class="card-wrapper">
 				<div class="package-card">
 					<div class="pkg-img">
-						<img src="../assets/images/Paris.jpg" alt="Destination Photo" />
+						<img src="static/assets/images/Paris.jpg" alt="Destination Photo" />
 					</div>
 					<div class="pkg-title">
 						PARIS
@@ -134,14 +165,21 @@
 								Information</a>
 
 						</div>
+						<form name="cart" action="/cart" method="post" >
 						<div class="pkg-price">
-							CA $395<br>Per night
+
+							<input type="text" value="$395" name="price">
+							<input type="text" value="Paris" name="Packages">
+
 						</div>
+
+						<button type="submit">Add to Cart</button>
+						</form>
 					</div>
 				</div>
 				<div class="package-card">
 					<div class="pkg-img">
-						<img src="../assets/images/NY.jpg" alt="Destination Photo" />
+						<img src="static/assets/images/NY.jpg" alt="Destination Photo" />
 					</div>
 					<div class="pkg-title">
 						New York
@@ -157,14 +195,22 @@
 								More Information</a>
 
 						</div>
-						<div class="pkg-price">
-							CA $385<br>Per night
-						</div>
+
+						<form name="cart" action="/cart" method="post" >
+								<div class="pkg-price">
+
+								<input type="text" value="$385" name="price">
+								<input type="text" value="New York" name="Packages">
+
+								</div>
+
+								<button type="submit">Add to Cart</button>
+						</form>
 					</div>
 				</div>
 				<div class="package-card">
 					<div class="pkg-img">
-						<img src="../assets/images/egypt.jpg" alt="Destination Photo" />
+						<img src="static/assets/images/egypt.jpg" alt="Destination Photo" />
 						<div class="pkg-title">
 							EGYPT
 						</div>
@@ -179,9 +225,16 @@
 									Information</a>
 
 							</div>
-							<div class="pkg-price">
-								CA $792<br>Per night
-							</div>
+							<form name="cart" action="/cart" method="post" >
+								<div class="pkg-price">
+
+								<input type="text" value="$792" name="price">
+								<input type="text" value="Egypt" name="Packages">
+
+								</div>
+
+								<button type="submit">Add to Cart</button>
+							</form>
 						</div>
 					</div>
 
@@ -191,7 +244,7 @@
 			<div class="card-wrapper">
 				<div class="package-card">
 					<div class="pkg-img">
-						<img src="../assets/images/India.jpg" alt="Destination Photo" />
+						<img src="static/assets/images/India.jpg" alt="Destination Photo" />
 					</div>
 					<div class="pkg-title">
 						INDIA
@@ -207,14 +260,21 @@
 								Here For More Information</a>
 
 						</div>
-						<div class="pkg-price">
-							CA $395<br>Per night
-						</div>
+						<form name="cart" action="/cart" method="post" >
+								<div class="pkg-price">
+
+								<input type="text" value="$395" name="price">
+								<input type="text" value="India" name="Packages">
+
+								</div>
+
+								<button type="submit">Add to Cart</button>
+						</form>
 					</div>
 				</div>
 				<div class="package-card">
 					<div class="pkg-img">
-						<img src="../assets/images/china.jpg" alt="Destination Photo" />
+						<img src="static/assets/images/china.jpg" alt="Destination Photo" />
 					</div>
 					<div class="pkg-title">
 						China
@@ -228,14 +288,21 @@
 							<br> <br> <a href="https://en.wikipedia.org/wiki/Tourism_in_China">Click Here For More
 								Information</a>
 						</div>
-						<div class="pkg-price">
-							CA $545<br>Per night
-						</div>
+						<form name="cart" action="/cart" method="post" >
+								<div class="pkg-price">
+
+								<input type="text" value="$545" name="price">
+								<input type="text" value="China" name="Packages">
+
+								</div>
+
+								<button type="submit">Add to Cart</button>
+						</form>
 					</div>
 				</div>
 				<div class="package-card">
 					<div class="pkg-img">
-						<img src="../assets/images/Rome.jpg" alt="Destination Photo" />
+						<img src="static/assets/images/Rome.jpg" alt="Destination Photo" />
 					</div>
 					<div class="pkg-title">
 						ROME
@@ -251,9 +318,16 @@
 								Information</a>
 
 						</div>
-						<div class="pkg-price">
-							CA $962<br>Per night
-						</div>
+						<form name="cart" action="/cart" method="post" >
+								<div class="pkg-price">
+
+								<input type="text" value="$962" name="price">
+								<input type="text" value="Rome" name="Packages">
+
+								</div>
+
+								<button type="submit">Add to Cart</button>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -262,7 +336,7 @@
 	<footer id="footer">
 		<div class="container">
 			<div class="logo">
-				<img src="../assets/images/logo.png" alt="Elegant Travelers">
+				<img src="static/assets/images/logo.png" alt="Elegant Travelers">
 			</div>
 			<p>"The Journey Of Thousand Miles Begins With A Single Step".
 			</p>
@@ -277,7 +351,7 @@
 				&copy; Copyright <strong><span>Elegant Travelers</span></strong>. All Rights Reserved
 			</div>
 			<div class="credits">
-				Designed by Aaditya Chauhan
+				Designed by Aditya Chauhan
 			</div>
 		</div>
 	</footer>

@@ -9,9 +9,9 @@
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-	<link rel="stylesheet" href="/css/header.css">
-	<link rel="stylesheet" href="/css/aboutus.css">
-	<link rel="stylesheet" href="/css/footer.css">
+	<link rel="stylesheet" href="static/css/header.css">
+	<link rel="stylesheet" href="static/css/aboutus.css">
+	<link rel="stylesheet" href="static/css/footer.css">
 	<style>
 
 	</style>
@@ -20,15 +20,22 @@
 <body>
 	<header id="header">
 		<div class="logo">
-			<img src="../assets/images/logo.png" alt="Elegant Travelers">
+			<img src="static/assets/images/logo.png" alt="Elegant Travelers">
 		</div>
 		<div class="navbar">
 			<ul>
-				<li><a href="index.html" style="text-decoration: none">Home</a></li>
-				<li><a href="tourspackages.html">Packages</a></li>
-				<li><a href="flightDetails.html">Flight Details</a></li>
-				<li><a href="contactus.html">Contact Us</a></li>
-				<li class="active"><a href="#">About Us</a></li>
+				<li class="active"><a href="#" style="text-decoration: none">Home</a></li>
+				<li><a href="{{ url_for('tourspackages') }}">Packages</a></li>
+				<li><a href="{{ url_for('flightDetails') }}" style="text-decoration: none">Flight Details</a></li>
+				<li><a href="{{ url_for('contactus') }}">Contact Us</a></li>
+				<li><a href="{{ url_for('aboutus') }}" style="text-decoration: none">About Us</a></li>
+				{% if loggedIn  %}
+					<li><a href="#" style="text-decoration: none">LoggedIn</a></li>
+				{% endif %}
+				{% if not loggedIn  %}
+					<li><a href="{{ url_for('loginpage') }}" style="text-decoration: none">Login/Signup</a></li>
+				{% endif %}
+				<li><a href="{{ url_for('cart') }}">Cart</a></li>
 			</ul>
 		</div>
 	</header>
@@ -40,7 +47,47 @@
 			<div class="card-wrapper">
 				<div class="package-card">
 					<div class="pkg-img">
-						<img src="../assets/images/manvir.png" alt="Profile Picture" />
+						<img src="static/assets/images/Aditya.jpeg" alt="Profile Picture" />
+					</div>
+					<div class="pkg-details">
+						<div class="pkg-title">
+							Aditya Chauhan
+						</div>
+						<div class="pkg-desc">
+							Professional profile: Results-oriented chief executive officer with more than 5 years of
+							experience managing and growing medium and large companies. Tampa Bay Times "40 Under 40"
+							award recipient and responsible for unparalleled growth in business revenue in my current
+							position (275% in 2 years). Seeking a position as the next CEO of ABC Company where I can
+							use my proven leadership skills to take the business to new heights.
+						</div>
+						<div class="pkg-price">
+							<i class="fas fa-envelope"> aadichauhan1102@gmail.com</i>
+						</div>
+					</div>
+				</div>
+				<div class="package-card">
+					<div class="pkg-img">
+						<img src="static/assets/images/Moksh.PNG" alt="Profile Picture" />
+					</div>
+					<div class="pkg-details">
+						<div class="pkg-title">
+							Moksh Khosla
+						</div>
+						<div class="pkg-desc">
+							Professional profile: Results-oriented chief executive officer with more than 5 years of
+							experience managing and growing medium and large companies. Tampa Bay Times "40 Under 40"
+							award recipient and responsible for unparalleled growth in business revenue in my current
+							position (275% in 2 years). Seeking a position as the next CEO of ABC Company where I can
+							use my proven leadership skills to take the business to new heights.
+						</div>
+						<div class="pkg-price">
+							<i class="fas fa-envelope"> Khoslamoksh@gmail.com</i>
+						</div>
+					</div>
+				</div>
+				<div class="package-card">
+					<div class="pkg-img">
+						<img src="static/assets/images/manvir.png" alt="Profile Picture" />
 					</div>
 					<div class="pkg-details">
 						<div class="pkg-title">
@@ -60,7 +107,7 @@
 				</div>
 				<div class="package-card">
 					<div class="pkg-img">
-						<img src="../assets/images/harpreet.jfif" alt="Profile Picture" />
+						<img src="static/assets/images/harpreet.jfif" alt="Profile Picture" />
 					</div>
 					<div class="pkg-details">
 						<div class="pkg-title">
@@ -80,7 +127,7 @@
 				</div>
 				<div class="package-card">
 					<div class="pkg-img">
-						<img src="../assets/images/jaspreet.jpeg" alt="Profile Picture" />
+						<img src="static/assets/images/jaspreet.jpeg" alt="Profile Picture" />
 					</div>
 					<div class="pkg-details">
 						<div class="pkg-title">
@@ -110,7 +157,7 @@
 	<footer id="footer">
 		<div class="container">
 			<div class="logo">
-				<img src="../assets/images/logo.png" alt="Elegant Travelers">
+				<img src="static/assets/images/logo.png" alt="Elegant Travelers">
 			</div>
 			<p>"The Journey Of Thousand Miles Begins With A Single Step".
 			</p>

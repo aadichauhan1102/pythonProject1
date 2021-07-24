@@ -7,10 +7,11 @@
 	<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-	<link rel="stylesheet" href="css/header.css">
-	<link rel="stylesheet" href="css/index.css">
-	<link rel="stylesheet" href="css/footer.css">
-	<link rel="stylesheet" href="css/loginpage.css">
+	<link rel="stylesheet" href="static/css/header.css">
+	<link rel="stylesheet" href="static/css/index.css">
+	<link rel="stylesheet" href="static/css/footer.css">
+	<script src="/lib/jquery.min.js"></script>
+	<script src="/lib/jquery.plugin.js"></script>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
 </head>
@@ -18,42 +19,48 @@
 <body>
 	<header id="header">
 		<div class="logo">
-			<img src="assets/images/logo.png" alt="Elegant Travelers">
+			<img src="static/assets/images/logo.png" alt="Elegant Travelers">
 		</div>
 		<div class="navbar">
 			<ul>
 				<li class="active"><a href="#" style="text-decoration: none">Home</a></li>
-				<li><a href="tourspackages.html">Packages</a></li>
-				<li><a href="flightDetails.html" style="text-decoration: none">Flight Details</a></li>
-				<li><a href="contactus.html">Contact Us</a></li>
-				<li><a href="aboutus.html" style="text-decoration: none">About Us</a></li>
-				<li><a href="loginpage.html" style="text-decoration: none">Login/Signup</a></li>
+				<li><a href="{{ url_for('tourspackages') }}">Packages</a></li>
+				<li><a href="{{ url_for('flightDetails') }}" style="text-decoration: none">Flight Details</a></li>
+				<li><a href="{{ url_for('contactus') }}">Contact Us</a></li>
+				<li><a href="{{ url_for('aboutus') }}" style="text-decoration: none">About Us</a></li>
+				{% if loggedIn  %}
+					<li><a href="#" style="text-decoration: none">Hello, {{ name }}</a></li>
+				{% endif %}
+				{% if not loggedIn  %}
+					<li><a href="{{ url_for('loginpage') }}" style="text-decoration: none">Login/Signup</a></li>
+				{% endif %}
+				<li><a href="{{ url_for('cart') }}">Cart</a></li>
 			</ul>
 		</div>
 	</header>
 	<div class="main">
 		<div class="video-container">
 			<video autoplay loop muted>
-				<source src="assets/videos/back.mp4" type="video/mp4">
+				<source src="static/assets/videos/back.mp4" type="video/mp4">
 			</video>
 			<div class="main-logo-container">
-				<img src="assets/images/main-logo.png" alt="main logo"/>
+				<img src="static/assets/images/main-logo.png" alt="main logo"/>
 			</div>
 		</div>
 		<div class="carousel-container">
 			<marquee id="marquee">
 				<div class="marq-img-wrapper">
 					<div class="marq-img img-1">
-						<img src="assets/images/car1.jpg" alt="" />
+						<img src="static/assets/images/car1.jpg" alt="" />
 					</div>
 					<div class="marq-img img-1">
-						<img src="assets/images/car2.jpg" alt="" />
+						<img src="static/assets/images/car2.jpg" alt="" />
 					</div>
 					<div class="marq-img img-1">
-						<img src="assets/images/car3.jpg" alt="" />
+						<img src="static/assets/images/car3.jpg" alt="" />
 					</div>
 					<div class="marq-img img-1">
-						<img src="assets/images/car4.jpeg" alt="" />
+						<img src="static/assets/images/car4.jpg" alt="" />
 					</div>
 				</div>
 			</marquee>
@@ -62,7 +69,7 @@
 	<footer id="footer">
 		<div class="container">
 			<div class="logo">
-				<img src="assets/images/logo.png" alt="Elegant Travelers">
+				<img src="static/assets/images/logo.png" alt="Elegant Travelers">
 			</div>
 			<p>"The Journey Of Thousand Miles Begins With A Single Step".
 			</p>
@@ -84,7 +91,7 @@
 	<a href="#" class="back-to-top">
 		<i class="fas fa-arrow-up"></i>
 	</a>
-	<script src="js/main.js"></script>
+	<script src="static//js/main.js"></script>
 </body>
 
 </html>
