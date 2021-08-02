@@ -16,6 +16,7 @@ body {
   padding: 0 30px;
 }
 header {
+  height: 100px;
   background: #fff;
   transition: all 0.5s;
   z-index: 997;
@@ -35,7 +36,7 @@ header .logo img {
   width: 300px;
 }
 header .navbar {
-  width: 55%;
+  width: 75%;
 }
 header .navbar ul {
   display: flex;
@@ -44,9 +45,10 @@ header .navbar ul {
   list-style-type: none;
 }
 header .navbar ul li {
-  font-size: 24px;
+  font-size: 20px;
   color: #C89D76;
   cursor: pointer;
+  margin:0 10px;
 }
 header .navbar ul li a {
   color: #C89D76;
