@@ -1,70 +1,70 @@
 from application import app, db_connection
-from flask import render_template, request, session, redirect,url_for
-import dns.resolver
-from flask_session.__init__ import Session
-import pymongo
-import flask
+from flask import render_template, request, session, redirect
+
 
 connection_db = db_connection.db_connection()
 db = connection_db.connect_to_mongodb()
-#session['loggedIn'] = False
-#session['name'] = None
+
 
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('index.html', loggedIn=session['loggedIn'], name=session['name'])
+    return render_template('index.html', loggedIn=session.get('loggedIn'), name=session.get('name'))
+
 
 @app.route("/tourspackages")
 def tourspackages():
-    if not session['loggedIn']:
-         return redirect("/loginpage")
-    return render_template("tourspackages.html",  loggedIn=session['loggedIn'], name=session['name'])
+    if not session.get('loggedIn'):
+        return redirect("/loginpage")
+    return render_template("tourspackages.html",  loggedIn=session.get('loggedIn'), name=session.get('name'))
+
 
 @app.route("/cart", methods=['GET', 'POST'])
 def cart(travel_pck={}):
-    if not session['loggedIn']:
-         return redirect("/loginpage")
+    if not session.get('loggedIn'):
+        return redirect("/loginpage")
     if request.method == 'POST':
         price = request.form.get("price")
         packages = request.form.get("packages")
         people = request.form.get("people")
-        print("cart",price,packages,people)
+        print("cart", price, packages, people)
         total = int(price.lstrip('$'))*int(people)
         travel_table = db["cart"]
-        travel_pck = { "Package_name": packages, "Package_Price_per_person": price,"total_people":people,"total_price":total}
+        travel_pck = {"Package_name": packages, "Package_Price_per_person": price,
+                      "total_people": people, "total_price": total}
         try:
             travel_table.insert_one(travel_pck)
         except Exception as e:
             print("An exception occurred ::", e)
-    return render_template("cart.html",travel_pck=travel_pck,  loggedIn=session['loggedIn'], name=session['name'])
+    return render_template("cart.html", travel_pck=travel_pck,  loggedIn=session.get('loggedIn'), name=session.get('name'))
 
 
 @app.route("/contactus")
 def contactus():
-    if not session['loggedIn']:
+    if not session.get('loggedIn'):
         return redirect("/loginpage")
-    return render_template("contactus.html", loggedIn=session['loggedIn'], name=session['name'] )
+    return render_template("contactus.html", loggedIn=session.get('loggedIn'), name=session.get('name'))
+
 
 @app.route("/booking")
 def booking():
-    if not session['loggedIn']:
-         return redirect("/loginpage")
-    return render_template("booking.html",  loggedIn=session['loggedIn'], name=session['name'])
+    if not session.get('loggedIn'):
+        return redirect("/loginpage")
+    return render_template("booking.html",  loggedIn=session.get('loggedIn'), name=session.get('name'))
 
 
 @app.route("/flightDetails")
 def flightDetails():
-    if not session['loggedIn']:
+    if not session.get('loggedIn'):
         return redirect("/loginpage")
-    return render_template("flightDetails.html",  loggedIn=session['loggedIn'], name=session['name'])
+    return render_template("flightDetails.html",  loggedIn=session.get('loggedIn'), name=session.get('name'))
 
 
 @app.route("/aboutus")
 def aboutus():
-    if not session['loggedIn']:
+    if not session.get('loggedIn'):
         return redirect("/loginpage")
-    return render_template("aboutus.html",  loggedIn=session['loggedIn'], name=session['name'])
+    return render_template("aboutus.html",  loggedIn=session.get('loggedIn'), name=session.get('name'))
 
 
 @app.route("/loginpage", methods=['GET', 'POST'])
@@ -88,11 +88,11 @@ def loginpage():
                 msg = 'Wrong password'
                 session["name"] = None
                 session['loggedIn'] = False
-                return render_template('loginpage.html',loggedIn=False, msg=msg)
+                return render_template('loginpage.html', loggedIn=False, msg=msg)
         else:
             msg = 'Email not found'
-            return render_template('loginpage.html',loggedIn=False, msg=msg)
-    return render_template("loginpage.html",loggedIn=False)
+            return render_template('loginpage.html', loggedIn=False, msg=msg)
+    return render_template("loginpage.html", loggedIn=False)
 
 
 @app.route("/register", methods=['POST'])
@@ -108,6 +108,7 @@ def register():
         except Exception as e:
             print("An exception occurred ::", e)
         return render_template("loginpage.html", msg="Customer successfully created!!!")
+
 
 @app.route("/logout")
 def logout():

@@ -1,33 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
-	<header id="header">
-		<div class="logo">
-			<img src="static/assets/images/logo.png" alt="Elegant Travelers">
-		</div>
-		<div class="navbar">
-			<ul>
-				<li class="active"><a href="#" style="text-decoration: none">Home</a></li>
-				<li><a href="{{ url_for('tourspackages') }}">Packages</a></li>
-				<li><a href="{{ url_for('flightDetails') }}" style="text-decoration: none">Flight Details</a></li>
-				<li><a href="{{ url_for('contactus') }}">Contact Us</a></li>
-				<li><a href="{{ url_for('aboutus') }}" style="text-decoration: none">About Us</a></li>
-				<li><a href="{{ url_for('cart') }}">Cart</a></li>
-				{% if loggedIn  %}
-					<li><a href="#" style="text-decoration: none">Hello, {{ name }}</a></li>
-					<li><a href="{{ url_for('logout') }}">Logout</a></li>
-				{% endif %}
-				{% if not loggedIn  %}
-					<li><a href="{{ url_for('loginpage') }}" style="text-decoration: none">Login/Signup</a></li>
-				{% endif %}
 
-			</ul>
-		</div>
-	</header>
+<body>
+    <header id="header">
+        <div class="logo">
+            <img src="static/assets/images/logo.png" alt="Elegant Travelers">
+        </div>
+        <div id="navbar">
+            <ul>
+                {% set navigation_bar = [ ('home', "Home"), ('tourspackages', 'Packages'), ('flightDetails', 'Flight Details'), ('contactus', 'Contact Us'), ('aboutus', 'About Us'), ('cart', 'Cart') ] -%} {% for href, caption in navigation_bar %}
+                <li class="{% if request.endpoint==href %}active{%endif %}"><a href="{{ url_for(href) }}" style="text-decoration: none">{{ caption }}</a></li>
+                {% endfor %}
+
+                <!-- <li class="active"><a href="{{ url_for('home') }}" >Home</a></li> -->
+                {% if loggedIn %}
+                <li><a href="#" style="text-decoration: none">Hello, {{ name }}</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                {% endif %} {% if not loggedIn %}
+                <li><a href="{{ url_for('loginpage') }}" style="text-decoration: none">Login/Signup</a></li>
+                {% endif %}
+
+            </ul>
+        </div>
+    </header>
 
 </body>
+
 </html>

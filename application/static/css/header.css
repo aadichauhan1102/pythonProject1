@@ -1,61 +1,75 @@
 * {
-  box-sizing: border-box;
-  line-height: 1;
-  font-family: 'Alegreya Sans', sans-serif;
+    line-height: 1;
+    box-sizing: border-box;
+    font-family: 'Alegreya Sans', sans-serif;
 }
+
 a {
-  cursor: pointer;
-  text-decoration: none;
+    cursor: pointer;
+    text-decoration: none;
 }
+
 body {
-  margin: 0;
+    margin: 0;
 }
+
 .el-container {
-  margin: auto;
-  max-width: 1380px;
-  padding: 0 30px;
+    margin: auto;
+    max-width: 1380px;
+    padding: 0 30px;
 }
-header {
-  height: 100px;
-  background: #fff;
-  transition: all 0.5s;
-  z-index: 997;
-  padding: 20px 100px;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.05);
-  display: flex;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  justify-content: space-between;
+
+
+/* Header Css */
+
+header#header {
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    display: flex;
+    position: fixed;
+    background: #fff;
+    padding: 20px 100px;
+    align-items: center;
+    transition: all 0.5s;
+    justify-content: space-between;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.05);
 }
-header .logo {
-  width: 300px;
+
+header#header .logo img {
+    width: 300px;
 }
-header .logo img {
-  width: 300px;
+
+header#header #navbar {
+    width: 75%;
 }
-header .navbar {
-  width: 75%;
+
+header#header #navbar ul {
+    margin: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+    justify-content: space-between;
 }
-header .navbar ul {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  list-style-type: none;
+
+header#header>#navbar ul li {
+    font-size: 20px;
+    color: #C89D76;
+    cursor: pointer;
+    margin: 0 10px;
 }
-header .navbar ul li {
-  font-size: 20px;
-  color: #C89D76;
-  cursor: pointer;
-  margin:0 10px;
+
+header#header>#navbar ul li a {
+    color: #C89D76;
 }
-header .navbar ul li a {
-  color: #C89D76;
+
+header#header>#navbar ul li.active a {
+    color: #49b5e7;
 }
-header .navbar ul li.active a {
-  color: #49b5e7;
+
+header#header li {
+    z-index: 1;
 }
-header li {
-  z-index: 1;
-}
+
+
+/* Header Css */

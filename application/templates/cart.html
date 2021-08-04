@@ -3,10 +3,10 @@
 <html>
 
 <head>
-
 	<title>Cart</title>
-	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css"
+		href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<title>Elegant Travelers</title>
 	<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
 <body>
 	{% include 'navigationbar.html' %}
 
-{% if travel_pck != {} %}
+	{% if travel_pck != {} %}
 	<div class="container">
 		<h1><b>Cart</b></h1>
 		<div class="cart">
@@ -36,16 +36,16 @@
 				</div>
 			</div>
 			<div class="cart-total">
-				<p>	<span>Total Price</span>
+				<p> <span>Total Price</span>
 					<span>{{travel_pck['total_price']}} </span>
 				</p>
 				<a href="{{ url_for('booking', travel_pck=travel_pck) }}">Proceed to Checkout</a>
 			</div>
 		</div>
 	</div>
-{% else %}
+	{% else %}
 	<div style="margin-top:200px; text-align:center;">Cart is empty</div>
-{% endif %}
+	{% endif %}
 
 
 

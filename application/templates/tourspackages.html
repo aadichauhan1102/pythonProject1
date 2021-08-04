@@ -2,251 +2,250 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<title>Elegant Travelers</title>
-	<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-	<link rel="stylesheet" href="static/css/header.css">
-	<link rel="stylesheet" href="static/css/tourspackages.css">
-	<link rel="stylesheet" href="static/css/footer.css">
-	<script src="/lib/jquery.min.js"></script>
-	<script src="/lib/jquery.plugin.js"></script>
-	<style>
-<!--		h2 {-->
-<!--			font-size: 30px;-->
-<!--			font-family: 'Brush Script MT', cursive;-->
-<!--			color: red;-->
-<!--			margin-left: 2%;-->
-<!--			margin-top: -1%;-->
-<!--		}-->
-	</style>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Elegant Travelers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/header.css">
+    <link rel="stylesheet" href="static/css/tourspackages.css">
+    <link rel="stylesheet" href="static/css/footer.css">
+    <script src="/lib/jquery.min.js"></script>
+    <script src="/lib/jquery.plugin.js"></script>
 </head>
 
 <body>
-	{% include 'navigationbar.html' %}
+    {% include 'navigationbar.html' %}
 
 
-	<main class="main">
-		<div class="el-container">
-			<div class="el-tp-heading" style="margin-top:80px; font-size:45px; text-align:center;">
-				Tours &nbsp; And &nbsp; Packages
-			</div>
-		</div>
-	</main>
-
-<!--	Modified code    -->
-	<div class="container mt-5" style="margin-top: 5rem !important;">
-		<div class="row mt-5">
-			<div class="col-md-4 text-center">
-			  <div class="card mb-4 shadow-sm">
-				<img src="static/assets/images/Toronto.jpg" alt="Destination Photo" class="cimg" />
-				<div class="card-body">
-					<h1 class="card-header text-center"> Toronto </h1>
-				  <p class="card-text">Toronto, the capital of the province of Ontario, is a major Canadian city along Lake. Ontario’s northwestern shore. It's a dynamic metropolis with a core of soaring skyscrapers, all dwarfed by the iconic, free-standing CN Tower. Toronto also has many green spaces, from the orderly oval of Queen’s Park to 400-acre High Park and its trails, sports facilities and zoo</p>
-
-					<a href=" https://en.wikipedia.org/wiki/Tourism_in_Toronto" class="btn btn-success text-white mb-4">Click Here For More Information</a>
-					<form action="{{ url_for('cart') }}" method="POST" >
-						<input type="text" value="$895" name="price" class="form-control" hidden>
-						<input type="text" value="Toronto" name="packages" class="form-control" hidden>
-						No of person = <input type="number" value="1" name="people"  class="form-control">
-						<button type="submit">Add to Cart</button>
-					</form>
+    <main class="main" id="travel-header">
+        <div class="el-container">
+            <div class="el-tp-heading" style="margin-top:80px; font-size:45px; text-align:center;">
+                Tours &nbsp; And &nbsp; Packages
+            </div>
+        </div>
+    </main>
 
 
-				  </div>
-				</div>
-			  </div>
+    <script>
+        const navbar = document.getElementById('header');
+        const {
+            height
+        } = navbar.getBoundingClientRect()
 
-			<div class="col-md-4 text-center">
-			  <div class="card mb-4 shadow-sm">
-				<img src="static/assets/images/Switzerland.jpg" alt="Destination Photo"  class="cimg" />
+        const header = document.getElementById('travel-header')
+        header.style.marginTop = `${height}px`
+    </script>
 
-				<div class="card-body">
-					<h1 class="card-header text-center"> Switzerland </h1>
-					<p class="card-text">Switzerland is a mountainous Central European country, home to numerous lakes, villages and the high peaks of the Alps. Its cities contain medieval quarters, with landmarks like capital Bern’s Zytglogge clock tower and Lucerne’s wooden chapel bridge. The country is also known for its ski resorts and hiking trails. Banking and finance are key industries.</p>
-					<a href=" https://en.wikipedia.org/wiki/Tourism_in_Switzerland"  class="btn btn-success text-white mb-4">Click Here For More Information</a>
-					<form name="cart" action="/cart" method="post" >
-						<input type="text" value="$895" name="price" class="form-control" hidden>
-						<input type="text" value="switzerland" name="packages" class="form-control" hidden>
-						No of person = <input type="number" value="1" name="people"  class="form-control">
-						<button type="submit">Add to Cart</button>
-					</form>
-				</div>
-			  </div>
-			</div>
+    <!--	Modified code    -->
+    <div class="container mt-5" style="margin-top: 5rem !important;">
+        <div class="row mt-5">
+            <div class="col-md-4 text-center">
+                <div class="card mb-4 shadow-sm">
+                    <img src="static/assets/images/Toronto.jpg" alt="Destination Photo" class="cimg" />
+                    <div class="card-body">
+                        <h1 class="card-header text-center"> Toronto </h1>
+                        <p class="card-text">Toronto, the capital of the province of Ontario, is a major Canadian city along Lake. Ontario’s northwestern shore. It's a dynamic metropolis with a core of soaring skyscrapers, all dwarfed by the iconic, free-standing CN Tower.
+                            Toronto also has many green spaces, from the orderly oval of Queen’s Park to 400-acre High Park and its trails, sports facilities and zoo</p>
 
-			<div class="col-md-4 text-center">
-			  <div class="card mb-4 shadow-sm">
-				<img src="static/assets/images/Dubai.jpg" alt="Destination Photo"  class="cimg" />
-
-				<div class="card-body">
-					<h1 class="card-header text-center"> Dubai </h1>
-					<p class="card-text">Dubai is a city and emirate in the United Arab Emirates known for luxury shopping, ultramodern architecture and a lively nightlife scene. Burj Khalifa, an 830m-tall tower, dominates the skyscraper-filled skyline. At its foot lies Dubai Fountain, with jets and lights choreographed to music. On artificial islands just offshore is Atlantis, The Palm, a resort with water</p>
-					<a href=" https://en.wikipedia.org/wiki/Tourism_in_Dubai"  class="btn btn-success text-white mb-4">Click Here For More Information</a>
-					<form name="cart" action="/cart" method="post" >
-						<input type="text" value="$895" name="price" class="form-control" hidden>
-						<input type="text" value="dubai" name="packages" class="form-control" hidden>
-						No of person = <input type="number" value="1" name="people"  class="form-control">
-						<button type="submit">Add to Cart</button>
-					</form>
-				</div>
-			  </div>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-md-4 text-center">
-			  <div class="card mb-4 shadow-sm">
-				<img src="static/assets/images/Paris.jpg" alt="Destination Photo" class="cimg" />
-				<div class="card-body">
-					<h1 class="card-header text-center"> Paris </h1>
-				  <p class="card-text">Paris, France's capital, is a major European city and a global center for art, fashion, gastronomy and culture. Its 19th-century cityscape is crisscrossed by wide boulevards and the River Seine. Beyond such landmarks as the Eiffel Tower and the 12th-century, Gothic Notre-Dame cathedral, the city is known for its cafe culture and designer boutiques along the Rue. </p>
-
-					<a href=" https://en.wikipedia.org/wiki/Tourism_in_Paris" class="btn btn-success text-white mb-4">Click Here For More Information</a>
-					<form name="cart" action="/cart" method="post" >
-						<input type="text" value="$895" name="price" class="form-control" hidden>
-						<input type="text" value="Paris" name="packages" class="form-control" hidden>
-						No of person = <input type="number" value="1" name="people"  class="form-control">
-						<button type="submit">Add to Cart</button>
-					</form>
+                        <a href=" https://en.wikipedia.org/wiki/Tourism_in_Toronto" class="btn btn-success text-white mb-4">Click Here For More Information</a>
+                        <form action="{{ url_for('cart') }}" method="POST">
+                            <input type="text" value="$895" name="price" class="form-control" hidden>
+                            <input type="text" value="Toronto" name="packages" class="form-control" hidden> No of person = <input type="number" value="1" name="people" class="form-control">
+                            <button type="submit">Add to Cart</button>
+                        </form>
 
 
-				  </div>
-				</div>
-			  </div>
+                    </div>
+                </div>
+            </div>
 
-			<div class="col-md-4 text-center">
-			  <div class="card mb-4 shadow-sm">
-				<img src="static/assets/images/NY.jpg" alt="Destination Photo"  class="cimg" />
+            <div class="col-md-4 text-center">
+                <div class="card mb-4 shadow-sm">
+                    <img src="static/assets/images/Switzerland.jpg" alt="Destination Photo" class="cimg" />
 
-				<div class="card-body">
-					<h1 class="card-header text-center"> New York </h1>
-					<p class="card-text">New York City comprises 5 boroughs sitting where the Hudson River meets the Atlantic Ocean. At its core is Manhattan, a densely populated borough that’s among the world’s major commercial, financial and cultural centers. Its iconic sites include skyscrapers such as the Empire State Building and sprawling Central Park. Broadway theater is staged in neon-lit Times Square </p>
-					<a href=" https://en.wikipedia.org/wiki/Tourism_in_New_York_City"  class="btn btn-success text-white mb-4">Click Here For More Information</a>
-					<form name="cart" action="/cart" method="post" >
-						<input type="text" value="$385" name="price" class="form-control" hidden>
-						<input type="text" value="newyork" name="packages" class="form-control" hidden>
-						No of person = <input type="number" value="1" name="people"  class="form-control">
-						<button type="submit">Add to Cart</button>
-					</form>
-				</div>
-			  </div>
-			</div>
+                    <div class="card-body">
+                        <h1 class="card-header text-center"> Switzerland </h1>
+                        <p class="card-text">Switzerland is a mountainous Central European country, home to numerous lakes, villages and the high peaks of the Alps. Its cities contain medieval quarters, with landmarks like capital Bern’s Zytglogge clock tower and Lucerne’s
+                            wooden chapel bridge. The country is also known for its ski resorts and hiking trails. Banking and finance are key industries.
+                        </p>
+                        <a href=" https://en.wikipedia.org/wiki/Tourism_in_Switzerland" class="btn btn-success text-white mb-4">Click Here For More Information</a>
+                        <form name="cart" action="/cart" method="post">
+                            <input type="text" value="$895" name="price" class="form-control" hidden>
+                            <input type="text" value="switzerland" name="packages" class="form-control" hidden> No of person = <input type="number" value="1" name="people" class="form-control">
+                            <button type="submit">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
-			<div class="col-md-4 text-center">
-			  <div class="card mb-4 shadow-sm">
-				<img src="static/assets/images/egypt.jpg" alt="Destination Photo"  class="cimg" />
+            <div class="col-md-4 text-center">
+                <div class="card mb-4 shadow-sm">
+                    <img src="static/assets/images/Dubai.jpg" alt="Destination Photo" class="cimg" />
 
-				<div class="card-body">
-					<h1 class="card-header text-center"> EGYPT  </h1>
-					<p class="card-text">Egypt, a country linking northeast Africa with the Middle East, dates to the time of the pharaohs. Millennia-old monuments sit along the fertile Nile River Valley, including Giza's colossal Pyramids and Great Sphinx as well as Luxor's hieroglyph-lined Karnak Temple and Valley of the Kings tombs. The capital, Cairo, is home to Ottoman landmarks like Muhammad Ali Mosque and the Egyptian Museum, a trove of antiquities.</p>
-					<a href="https://en.wikipedia.org/wiki/Tourism_in_Switzerland"  class="btn btn-success text-white mb-4">Click Here For More Information</a>
-					<form name="cart" action="/cart" method="post" >
-						<input type="text" value="$792" name="price" class="form-control" hidden>
-						<input type="text" value="egypt" name="packages" class="form-control" hidden>
-						No of person = <input type="number" value="1" name="people"  class="form-control">
-						<button type="submit">Add to Cart</button>
-					</form>
-				</div>
-			  </div>
-			</div>
-		</div>
+                    <div class="card-body">
+                        <h1 class="card-header text-center"> Dubai </h1>
+                        <p class="card-text">Dubai is a city and emirate in the United Arab Emirates known for luxury shopping, ultramodern architecture and a lively nightlife scene. Burj Khalifa, an 830m-tall tower, dominates the skyscraper-filled skyline. At its foot lies
+                            Dubai Fountain, with jets and lights choreographed to music. On artificial islands just offshore is Atlantis, The Palm, a resort with water</p>
+                        <a href=" https://en.wikipedia.org/wiki/Tourism_in_Dubai" class="btn btn-success text-white mb-4">Click Here For More Information</a>
+                        <form name="cart" action="/cart" method="post">
+                            <input type="text" value="$895" name="price" class="form-control" hidden>
+                            <input type="text" value="dubai" name="packages" class="form-control" hidden> No of person = <input type="number" value="1" name="people" class="form-control">
+                            <button type="submit">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-		<div class="row">
-			<div class="col-md-4 text-center">
-			  <div class="card mb-4 shadow-sm">
-				<img src="static/assets/images/India.jpg" alt="Destination Photo" class="cimg"  />
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <div class="card mb-4 shadow-sm">
+                    <img src="static/assets/images/Paris.jpg" alt="Destination Photo" class="cimg" />
+                    <div class="card-body">
+                        <h1 class="card-header text-center"> Paris </h1>
+                        <p class="card-text">Paris, France's capital, is a major European city and a global center for art, fashion, gastronomy and culture. Its 19th-century cityscape is crisscrossed by wide boulevards and the River Seine. Beyond such landmarks as the Eiffel
+                            Tower and the 12th-century, Gothic Notre-Dame cathedral, the city is known for its cafe culture and designer boutiques along the Rue. </p>
 
-				<div class="card-body">
-					<h1 class="card-header text-center"> India </h1>
-					<p class="card-text">Tourism in India is important for the country's economy and is growing rapidly. The World Travel and Tourism Council calculated that tourism generated ₹16.91 lakh crore or 9.2% of India's GDP in 2018 and supported 42.673 million jobs, 8.1% of its total employment. </p>
-					<a href=" https://en.wikipedia.org/wiki/Tourism_in_India"  class="btn btn-success text-white mb-4">Click Here For More Information</a>
-					<form name="cart" action="/cart" method="post" >
-						<input type="text" value="$395" name="price" class="form-control" hidden>
-						<input type="text" value="india" name="packages" class="form-control" hidden>
-						No of person = <input type="number" value="1" name="people"  class="form-control">
-						<button type="submit">Add to Cart</button>
-					</form>
-				</div>
-			  </div>
-			</div>
-
-			<div class="col-md-4 text-center">
-			  <div class="card mb-4 shadow-sm">
-				<img src="static/assets/images/China.jpg" alt="Destination Photo" class="cimg" />
-				<div class="card-body">
-					<h1 class="card-header text-center"> China  </h1>
-				  <p class="card-text">China, officially the People's Republic of China, is a country in East Asia. It is the world's most populous country, with a population of around 1.4 billion. Covering approximately 9.6 million square kilometers, it is the world's third or fourth-largest country by area. </p>
-
-					<a href=" https://en.wikipedia.org/wiki/Tourism_in_China" class="btn btn-success text-white mb-4">Click Here For More Information</a>
-					<form name="cart" action="/cart" method="post" >
-						<input type="text" value="$545" name="price" class="form-control" hidden>
-						<input type="text" value="china" name="packages" class="form-control" hidden>
-						No of person = <input type="number" value="1" name="people"  class="form-control">
-						<button type="submit">Add to Cart</button>
-					</form>
+                        <a href=" https://en.wikipedia.org/wiki/Tourism_in_Paris" class="btn btn-success text-white mb-4">Click Here For More Information</a>
+                        <form name="cart" action="/cart" method="post">
+                            <input type="text" value="$895" name="price" class="form-control" hidden>
+                            <input type="text" value="Paris" name="packages" class="form-control" hidden> No of person = <input type="number" value="1" name="people" class="form-control">
+                            <button type="submit">Add to Cart</button>
+                        </form>
 
 
-				  </div>
-				</div>
-			  </div>
+                    </div>
+                </div>
+            </div>
 
-			<div class="col-md-4 text-center">
-			  <div class="card mb-4 shadow-sm">
-				<img src="static/assets/images/Rome.jpg" alt="Destination Photo"  class="cimg" />
+            <div class="col-md-4 text-center">
+                <div class="card mb-4 shadow-sm">
+                    <img src="static/assets/images/NY.jpg" alt="Destination Photo" class="cimg" />
 
-				<div class="card-body">
-					<h1 class="card-header text-center"> Rome </h1>
-					<p class="card-text">Rome is the capital city and a special comune of Italy, as well as the capital of the Lazio region. The city has been a major human settlement for almost three millennia. With 2,860,009 residents in 1,285 km², it is also the country's most populated comune. boat ride and property. </p>
-					<a href=" https://en.wikipedia.org/wiki/Tourism_in_Rome"  class="btn btn-success text-white mb-4">Click Here For More Information</a>
-					<form name="cart" action="/cart" method="post" >
-						<input type="text" value="$962" name="price" class="form-control" hidden>
-						<input type="text" value="rome" name="packages" class="form-control" hidden>
-						No of person = <input type="number" value="1" name="people"  class="form-control">
-						<button type="submit">Add to Cart</button>
-					</form>
-				</div>
-			  </div>
-			</div>
-		</div>
-	</div>
+                    <div class="card-body">
+                        <h1 class="card-header text-center"> New York </h1>
+                        <p class="card-text">New York City comprises 5 boroughs sitting where the Hudson River meets the Atlantic Ocean. At its core is Manhattan, a densely populated borough that’s among the world’s major commercial, financial and cultural centers. Its iconic
+                            sites include skyscrapers such as the Empire State Building and sprawling Central Park. Broadway theater is staged in neon-lit Times Square </p>
+                        <a href=" https://en.wikipedia.org/wiki/Tourism_in_New_York_City" class="btn btn-success text-white mb-4">Click Here For More Information</a>
+                        <form name="cart" action="/cart" method="post">
+                            <input type="text" value="$385" name="price" class="form-control" hidden>
+                            <input type="text" value="newyork" name="packages" class="form-control" hidden> No of person = <input type="number" value="1" name="people" class="form-control">
+                            <button type="submit">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
-	<footer id="footer">
-		<div class="container">
-			<div class="logo">
-				<img src="static/assets/images/logo.png" alt="Elegant Travelers">
-			</div>
-			<p>"The Journey Of Thousand Miles Begins With A Single Step".
-			</p>
-			<div class="social-links">
-				<div class="social-link"><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></div>
-				<div class="social-link"><a href="#" class="facebook"><i class="fab fa-facebook"></i></a></div>
-				<div class="social-link"><a href="#" class="instagram"><i class="fab fa-instagram"></i></a></div>
-				<div class="social-link"><a href="#" class="google-plus"><i class="fab fa-skype"></i></a></div>
-				<div class="social-link"><a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a></div>
-			</div>
-			<div class="copyright">
-				&copy; Copyright <strong><span>Elegant Travelers</span></strong>. All Rights Reserved
-			</div>
-			<div class="credits">
-				Designed by Aditya Chauhan
-			</div>
-		</div>
-	</footer>
+            <div class="col-md-4 text-center">
+                <div class="card mb-4 shadow-sm">
+                    <img src="static/assets/images/egypt.jpg" alt="Destination Photo" class="cimg" />
+
+                    <div class="card-body">
+                        <h1 class="card-header text-center"> EGYPT </h1>
+                        <p class="card-text">Egypt, a country linking northeast Africa with the Middle East, dates to the time of the pharaohs. Millennia-old monuments sit along the fertile Nile River Valley, including Giza's colossal Pyramids and Great Sphinx as well as
+                            Luxor's hieroglyph-lined Karnak Temple and Valley of the Kings tombs. The capital, Cairo, is home to Ottoman landmarks like Muhammad Ali Mosque and the Egyptian Museum, a trove of antiquities.</p>
+                        <a href="https://en.wikipedia.org/wiki/Tourism_in_Switzerland" class="btn btn-success text-white mb-4">Click Here For More Information</a>
+                        <form name="cart" action="/cart" method="post">
+                            <input type="text" value="$792" name="price" class="form-control" hidden>
+                            <input type="text" value="egypt" name="packages" class="form-control" hidden> No of person = <input type="number" value="1" name="people" class="form-control">
+                            <button type="submit">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <div class="card mb-4 shadow-sm">
+                    <img src="static/assets/images/India.jpg" alt="Destination Photo" class="cimg" />
+
+                    <div class="card-body">
+                        <h1 class="card-header text-center"> India </h1>
+                        <p class="card-text">Tourism in India is important for the country's economy and is growing rapidly. The World Travel and Tourism Council calculated that tourism generated ₹16.91 lakh crore or 9.2% of India's GDP in 2018 and supported 42.673 million
+                            jobs, 8.1% of its total employment. </p>
+                        <a href=" https://en.wikipedia.org/wiki/Tourism_in_India" class="btn btn-success text-white mb-4">Click Here For More Information</a>
+                        <form name="cart" action="/cart" method="post">
+                            <input type="text" value="$395" name="price" class="form-control" hidden>
+                            <input type="text" value="india" name="packages" class="form-control" hidden> No of person = <input type="number" value="1" name="people" class="form-control">
+                            <button type="submit">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 text-center">
+                <div class="card mb-4 shadow-sm">
+                    <img src="static/assets/images/China.jpg" alt="Destination Photo" class="cimg" />
+                    <div class="card-body">
+                        <h1 class="card-header text-center"> China </h1>
+                        <p class="card-text">China, officially the People's Republic of China, is a country in East Asia. It is the world's most populous country, with a population of around 1.4 billion. Covering approximately 9.6 million square kilometers, it is the world's
+                            third or fourth-largest country by area. </p>
+
+                        <a href=" https://en.wikipedia.org/wiki/Tourism_in_China" class="btn btn-success text-white mb-4">Click Here For More Information</a>
+                        <form name="cart" action="/cart" method="post">
+                            <input type="text" value="$545" name="price" class="form-control" hidden>
+                            <input type="text" value="china" name="packages" class="form-control" hidden> No of person = <input type="number" value="1" name="people" class="form-control">
+                            <button type="submit">Add to Cart</button>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 text-center">
+                <div class="card mb-4 shadow-sm">
+                    <img src="static/assets/images/Rome.jpg" alt="Destination Photo" class="cimg" />
+
+                    <div class="card-body">
+                        <h1 class="card-header text-center"> Rome </h1>
+                        <p class="card-text">Rome is the capital city and a special comune of Italy, as well as the capital of the Lazio region. The city has been a major human settlement for almost three millennia. With 2,860,009 residents in 1,285 km², it is also the country's
+                            most populated comune. boat ride and property. </p>
+                        <a href=" https://en.wikipedia.org/wiki/Tourism_in_Rome" class="btn btn-success text-white mb-4">Click Here For More Information</a>
+                        <form name="cart" action="/cart" method="post">
+                            <input type="text" value="$962" name="price" class="form-control" hidden>
+                            <input type="text" value="rome" name="packages" class="form-control" hidden> No of person = <input type="number" value="1" name="people" class="form-control">
+                            <button type="submit">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="logo">
+                <img src="static/assets/images/logo.png" alt="Elegant Travelers">
+            </div>
+            <p>"The Journey Of Thousand Miles Begins With A Single Step".
+            </p>
+            <div class="social-links">
+                <div class="social-link"><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></div>
+                <div class="social-link"><a href="#" class="facebook"><i class="fab fa-facebook"></i></a></div>
+                <div class="social-link"><a href="#" class="instagram"><i class="fab fa-instagram"></i></a></div>
+                <div class="social-link"><a href="#" class="google-plus"><i class="fab fa-skype"></i></a></div>
+                <div class="social-link"><a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a></div>
+            </div>
+            <div class="copyright">
+                &copy; Copyright <strong><span>Elegant Travelers</span></strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                Designed by Aditya Chauhan
+            </div>
+        </div>
+    </footer>
 
 
 
-	<script src="../js/main.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-        crossorigin="anonymous"></script>
+    <script src="../js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 </body>
 
 </html>
