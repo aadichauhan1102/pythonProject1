@@ -66,7 +66,7 @@ def aboutus():
         return redirect("/loginpage")
     return render_template("aboutus.html",  loggedIn=session.get('loggedIn'), name=session.get('name'))
 
-#returns login is page in the session and verify email password
+#returns login is page in the session and verify email passwordd
 @app.route("/loginpage", methods=['GET', 'POST'])
 def loginpage():
     if request.method == 'POST' and 'email' in request.form and 'password' in request.form:
