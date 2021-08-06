@@ -7,3 +7,4 @@ python-dotenv==0.17.1
 Werkzeug==2.0.1
 pymongo
 dnspython
+Flask-session

@@ -59,14 +59,14 @@ def flightDetails():
         return redirect("/loginpage")
     return render_template("flightDetails.html",  loggedIn=session.get('loggedIn'), name=session.get('name'))
 
-
+#returns aboutus is page in the session
 @app.route("/aboutus")
 def aboutus():
     if not session.get('loggedIn'):
         return redirect("/loginpage")
     return render_template("aboutus.html",  loggedIn=session.get('loggedIn'), name=session.get('name'))
 
-
+#returns login is page in the session and verify email password
 @app.route("/loginpage", methods=['GET', 'POST'])
 def loginpage():
     if request.method == 'POST' and 'email' in request.form and 'password' in request.form:
@@ -117,3 +117,4 @@ def logout():
         session['loggedIn'] = False
         return redirect("/")
     return render_template("index.html")
+
