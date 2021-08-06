@@ -5,13 +5,13 @@ from flask import render_template, request, session, redirect
 connection_db = db_connection.db_connection()
 db = connection_db.connect_to_mongodb()
 
-
+#render to index
 @app.route("/")
 @app.route("/home")
 def home():
     return render_template('index.html', loggedIn=session.get('loggedIn'), name=session.get('name'))
 
-
+#render to packages
 @app.route("/tourspackages")
 def tourspackages():
     if not session.get('loggedIn'):
